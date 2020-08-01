@@ -1,0 +1,1 @@
+enum execution_mode{Thread, Handler};
