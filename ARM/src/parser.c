@@ -10,7 +10,7 @@ int get_nth_bit(int num, int n) {
 
 int get_bit_range(int num, int least, int greatest) {
     int mask = 0;
-    for(int i=greatest; i>least; i--) {
+    for(int i=greatest; i>=least; i--) {
         mask = mask | (1 << i);
     }
     int masked_num = num & mask;
