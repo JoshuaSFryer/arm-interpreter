@@ -1,5 +1,8 @@
 #include <stdio.h>
+#include <stdint.h>
+
 #include "registers.h"
+#include "instructions.h"
 
 int get_nth_bit(int num, int n) {
     int mask = 1 << n;
@@ -17,6 +20,8 @@ int get_bit_range(int num, int least, int greatest) {
     return masked_num >> least; 
 }
 
-void parse_instruction(int instruction) {
-
+int parse_instruction(uint16_t instruction) {
+    if (get_bit_range((int) instruction, 14, 15) == 0) {
+        return 1;
+    }
 }

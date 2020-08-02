@@ -14,6 +14,7 @@
 /**
  * Shift (immediate), add, subtract, move, and compare instructions.
  */
+// Add two registers
 #define ADD_3R      0b0001100
 #define SUB_3R      0b0001101
 #define ADD_2R_I    0b0001110
