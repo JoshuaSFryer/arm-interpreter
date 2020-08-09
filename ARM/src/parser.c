@@ -20,6 +20,22 @@ int get_bit_range(int num, int least, int greatest) {
     return masked_num >> least; 
 }
 
+/**
+ * Parse a decode header out of an instruction.
+ * The header may be of variable width.
+ */
+char* parse_header(int num) {
+    // Check the special cases first
+    // ADD/SUB/MOV/CMP
+    if (get_bit_range(num, 14, 15) == ASMC) {
+        return "ASMC";
+    }
+    // Load/store word/byte
+    else if (get_bit_range(num, 13, 15) == LS_WB) {
+        return "LSWS";
+    }
+}
+
 int parse_instruction(uint16_t instruction) {
     if (get_bit_range((int) instruction, 14, 15) == 0) {
         return 1;
